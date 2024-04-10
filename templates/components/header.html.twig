@@ -1,0 +1,26 @@
+<link href="{{ asset('css/header.css') }}" rel="stylesheet"/>
+
+<header class="header">
+
+    <div class="header__container-logo">
+        <img class="header__logo-img" src="{{ asset('images/logo.svg') }}" alt="Logo">
+        <span class="header__logo-text">Forum</span>
+    </div>
+
+    <div class="search">
+        <label>
+            <input type="text" class="search__input" placeholder="Un sujet en tête ?">
+        </label>
+        <button class="search__button">
+            <img class="search__icon" src="{{ asset('images/search-icon.svg') }}" alt="Loupe de recherche">
+        </button>
+    </div>
+
+    <nav class="header__nav">
+        <a class="button-login" href="{{ path('app_login') }}">Se connecter
+            <div class="arrow-wrapper">
+                <div class="arrow"></div>
+            </div>
+        </a>
+    </nav>
+</header>
