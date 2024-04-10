@@ -1,0 +1,136 @@
+:root {
+    --clr-primary: #1E252B;
+    --clr-secondary: #262D34;
+    --clr-tertiary: #2C353D;
+    --clr-accent: #3E45F5;
+
+    --fnt-color-primary: #F7F7F7;
+    --fnt-color-secondary: #C5D0E6;
+    --fnt-color-tertiary: #858EAD;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: var(--clr-primary);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+}
+
+/* Boutons */
+.button-login {
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: solid var(--clr-accent) 1px;
+    border-radius: 6px;
+    color: var(--fnt-color-primary);
+    padding: 12px 17px;
+    background: var(--clr-accent);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.050rem
+}
+
+.button-login .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-login .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+.button-login .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--fnt-color-primary);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+.button-login:hover {
+    background-color: var(--clr-tertiary);
+}
+
+.button-login:hover .arrow {
+    background: var(--fnt-color-primary);
+}
+
+.button-login:hover .arrow:before {
+    right: 0;
+}
+
+/* Inputs */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+}
+
+.search label {
+    width: 100%;
+}
+
+.search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--clr-tertiary);
+    border: none;
+    color: var(--fnt-color-tertiary);
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    width: 100%;
+    height: 40px;
+    transition: all ease-in-out .5s;
+}
+
+.search__input::-webkit-input-placeholder {
+    font-weight: 100;
+    color: var(--fnt-color-tertiary);
+}
+
+.search__button {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 10px;
+    height: 30px;
+}
+
+.search__button:hover {
+    cursor: pointer;
+}
+
+.search__icon {
+    height: 30px;
+}
