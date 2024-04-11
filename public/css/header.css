@@ -1,0 +1,35 @@
+header {
+    height: 80px;
+    background: var(--clr-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header .header__container-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .header__container-logo .header__logo-img {
+    width: 40px;
+    height: 40px;
+}
+
+header .header__account-img {
+    width: 40px;
+    height: 40px;
+}
+
+header .header__container-logo .header__logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--clr-accent);
+}
+
+header .header__nav {
+    display: flex;
+    gap: 20px;
+}
