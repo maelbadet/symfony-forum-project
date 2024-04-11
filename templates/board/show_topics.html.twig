@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la catégorie{{ board.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Détails de la catégorie "{{ board.name }}"</h1>
+
+        <h2>Tableaux de bord associés :</h2>
+        <ul>
+            {% for topic in topics %}
+                <li> <a href="{{ path('topic_show', {'id': topic.id}) }}">{{ topic.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

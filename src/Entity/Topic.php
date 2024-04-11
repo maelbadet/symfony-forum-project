@@ -30,7 +30,7 @@ class Topic
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $deleted_at = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(cascade: ['persist', 'remove'])]
     private ?User $UserEntity = null;
 
     #[ORM\ManyToOne(inversedBy: 'topics')]
