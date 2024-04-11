@@ -18,8 +18,18 @@ header .header__container-logo .header__logo-img {
     height: 40px;
 }
 
+header .header__account-img {
+    width: 40px;
+    height: 40px;
+}
+
 header .header__container-logo .header__logo-text {
     font-size: 26px;
     font-weight: 700;
     color: var(--clr-accent);
+}
+
+header .header__nav {
+    display: flex;
+    gap: 20px;
 }
