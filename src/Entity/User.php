@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $username = null;
 
     #[ORM\Column]
-    private ?bool $is_blocked = null;
+    private ?bool $is_blocked = false;
 
     public function getId(): ?int
     {
