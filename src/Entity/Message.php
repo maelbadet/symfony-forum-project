@@ -17,17 +17,20 @@ class Message
     #[ORM\Column(length: 255)]
     private ?string $content = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $created_at = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $deleted_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'messages')]
     private ?User $UserEntity = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Messages')]
+    private ?Topic $topic = null;
 
     public function getId(): ?int
     {
@@ -90,6 +93,18 @@ class Message
     public function setUserEntity(?User $UserEntity): static
     {
         $this->UserEntity = $UserEntity;
+
+        return $this;
+    }
+
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    public function setTopic(?Topic $topic): static
+    {
+        $this->topic = $topic;
 
         return $this;
     }
