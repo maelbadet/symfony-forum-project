@@ -24,11 +24,11 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $email = $user->getEmail();
 
-            if (strpos($email, '@insider.fr') !== false) {
+            if (str_contains($email, '@insider.fr')) {
                 $role = 'INSIDER';
-            } elseif (strpos($email, '@collaborator.fr') !== false) {
+            } elseif (str_contains($email, '@collaborator.fr')) {
                 $role = 'COLLABORATION';
-            } elseif (strpos($email, '@external.fr') !== false) {
+            } elseif (str_contains($email, '@external.fr')) {
                 $role = 'EXTERNE';
             } else {
                 $role = 'USER';
