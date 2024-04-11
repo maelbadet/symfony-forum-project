@@ -7,6 +7,10 @@
     --fnt-color-primary: #F7F7F7;
     --fnt-color-secondary: #C5D0E6;
     --fnt-color-tertiary: #858EAD;
+
+    --err-bg: #92000045;
+    --err-border: #9d00006b;
+    --err-color: #ffbcbc;
 }
 
 *,
@@ -84,6 +88,74 @@ body {
 
 .button-login:hover .arrow:before {
     right: 0;
+}
+
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+}
+
+/* plus sign */
+.sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sign svg {
+    width: 17px;
+}
+
+.sign svg path {
+    fill: white;
+}
+/* text */
+.text {
+    position: absolute;
+    right: 0;
+    width: 0;
+    opacity: 0;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.050rem;
+    white-space: nowrap;
+    font-weight: 600;
+    transition-duration: .3s;
+}
+
+.Btn:hover {
+    width: 180px;
+    border-radius: 6px;
+    transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+    width: 25%;
+    transition-duration: .3s;
+}
+
+.Btn:hover .text {
+    opacity: 1;
+    width: 73%;
+    transition-duration: .3s;
+    padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+    transform: translate(2px ,2px);
 }
 
 /* Inputs */
