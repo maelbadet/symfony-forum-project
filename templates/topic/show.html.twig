@@ -15,11 +15,11 @@
             {% endfor %}
         </ul>
 
-        <form action="{{ path('topic_add_message', {'id': topic.id}) }}" method="POST">
+        {# <form action="{{ path('topic_add_message', {'id': topic.id}) }}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token('add_message') }}">
             <textarea name="content" placeholder="Entrez votre message ici"></textarea>
             <button type="submit">Envoyer</button>
-        </form>
+        </form>#}
     </div>
 {% endblock %}
 

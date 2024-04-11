@@ -6,10 +6,18 @@
     <div class="container">
         <h1>Liste des catégories</h1>
 
-        <ul>
-            {% for categories in category %}
-                <li><a href="{{ path('app_category_show', {'id': categories.id}) }}">{{ categories.name }}</a></li>
-            {% endfor %}
-        </ul>
+        {% if category is empty %}
+            <p>Aucune catégorie n'a été créée.</p>
+        {% else %}
+            <ul>
+                {% for categories in category %}
+                    {% if categories.boards|length > 0 %}
+                        <li><a href="{{ path('app_category_show', {'id': categories.id}) }}">{{ categories.name }}</a></li>
+                    {% else %}
+                        <li>{{ categories.name }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 {% endblock %}
