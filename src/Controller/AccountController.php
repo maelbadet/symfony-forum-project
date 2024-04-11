@@ -33,7 +33,6 @@ class AccountController extends AbstractController
         }
         if (!empty($newPassword)){
             if ($form->isSubmitted() && $form->isValid()) {
-            var_dump('coucou');
                 if ( $newPassword === $verifNewpassword) {
                     $user->setPassword(
                         $userPasswordHasher->hashPassword(
@@ -43,9 +42,10 @@ class AccountController extends AbstractController
                     );
                     $entityManager->persist($user);
                     $entityManager->flush();
+                  $this->addFlash('success', 'Vos données ont été mises à jour avec succès.');
                     return $this->redirectToRoute('app_personnal_information');
                 } else {
-                    $this->addFlash('danger', 'Mot de passe invalide. Êtes vous sur que vos mots passe correspondais ?');
+                    $this->addFlash('danger', 'Le mot de passe est invalide. Êtes-vous certain que vos mots de passe concordaient ?');
                 }
             }
             return $this->redirectToRoute('app_personnal_information');
