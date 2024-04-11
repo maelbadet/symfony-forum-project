@@ -36,29 +36,4 @@ class TopicController extends AbstractController
             'topic' => $topic,
         ]);
     }
-
-    #[Route('/create-topic-with-messages', name: 'create_topic_with_messages')]
-    public function createTopicWithMessages(EntityManagerInterface $entityManager): Response
-    {
-        
-        $topic = new Topic();
-        $topic->setTitle("Titre du sujet");
-        $topic->setContent("Contenu du sujet");
-        $topic->setCreatedAt(new \DateTime());
-        $topic->setUpdatedAt(new \DateTime());
-        $topic->setDeletedAt(new \DateTime());
-        
-        $message1 = new Message();
-        $message1->setContent("Premier message");
-        $message2 = new Message();
-        $message2->setContent("Deuxième message");
-
-        $topic->addMessage($message1);
-        $topic->addMessage($message2);
-
-        $entityManager->persist($topic);
-        $entityManager->flush();
-
-        return new Response("Sujet créé avec des messages.");
-    }
 }
