@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\TopicRepository;
@@ -158,7 +157,6 @@ class Topic
     public function removeMessage(Message $message): static
     {
         if ($this->Messages->removeElement($message)) {
-            // set the owning side to null (unless already changed)
             if ($message->getTopic() === $this) {
                 $message->setTopic(null);
             }

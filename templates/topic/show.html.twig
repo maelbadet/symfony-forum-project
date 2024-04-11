@@ -3,24 +3,24 @@
 {% block title %}{{ topic.title }}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="example-wrapper">
+        <h1>{{ topic.title }}</h1>
 
-<div class="example-wrapper">
-    <h1>{{ topic.title }}</h1>
+        <p>{{ topic.content }}</p>
 
-    <p>{{ topic.content }}</p>
+        <h2>Messages</h2>
+        <ul>
+            {% for message in topic.messages %}
+                <li>{{ message.content }}</li>
+            {% endfor %}
+        </ul>
 
-    <h2>Messages</h2>
-
-    <ul>
-        {% for message in topic.messages %}
-            <li>{{ message.content }}</li>
-        {% endfor %}
-    </ul>
-</div>
+        <form action="{{ path('topic_add_message', {'id': topic.id}) }}" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token('add_message') }}">
+            <textarea name="content" placeholder="Entrez votre message ici"></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
 {% endblock %}
 
 
