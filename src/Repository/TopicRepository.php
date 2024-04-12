@@ -20,6 +20,14 @@ class TopicRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Topic::class);
     }
+    public function findByTitleContaining($query): array
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.title LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->getQuery()
+            ->getResult();
+    }
 
 //    /**
 //     * @return Topic[] Returns an array of Topic objects

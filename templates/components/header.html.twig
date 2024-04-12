@@ -7,14 +7,16 @@
         <span class="header__logo-text">Forum</span>
     </a>
 
-    <div class="search">
-        <label>
-            <input type="text" class="search__input" placeholder="Un sujet en tête ?">
-        </label>
-        <button class="search__button">
-            <img class="search__icon" src="{{ asset('images/search-icon.svg') }}" alt="Loupe de recherche">
-        </button>
-    </div>
+    <form action="{{ path('app_search_results') }}" method="GET">
+        <div class="search">
+            <label>
+                <input type="text" name="query" class="search__input" placeholder="Un sujet en tête ?">
+            </label>
+            <button type="submit" class="search__button">
+                <img class="search__icon" src="{{ asset('images/search-icon.svg') }}" alt="Loupe de recherche">
+            </button>
+        </div>
+    </form>
 
     <nav class="header__nav">
         {% if app.user %}
