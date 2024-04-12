@@ -39,6 +39,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $is_blocked = false;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $profileImage = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +137,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBlocked(bool $is_blocked): static
     {
         $this->is_blocked = $is_blocked;
+
+        return $this;
+    }
+
+    public function getProfileImage(): ?string
+    {
+        return $this->profileImage;
+    }
+
+    public function setProfileImage(?string $profileImage): static
+    {
+        $this->profileImage = $profileImage;
 
         return $this;
     }
