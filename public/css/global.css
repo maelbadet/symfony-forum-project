@@ -11,6 +11,10 @@
     --err-bg: #92000045;
     --err-border: #9d00006b;
     --err-color: #ffbcbc;
+
+    --success-bg: #00800045;
+    --success-border: #0080006b;
+    --success-color: #c4ffc4;
 }
 
 *,
@@ -27,6 +31,7 @@ a {
 
 body {
     background: var(--clr-primary);
+    color: var(--fnt-color-primary);
     font-family: "Space Grotesk", sans-serif;
     font-weight: 500;
 }
@@ -107,7 +112,7 @@ body {
 }
 
 /* plus sign */
-.sign {
+.log-out {
     width: 100%;
     transition-duration: .3s;
     display: flex;
@@ -115,11 +120,11 @@ body {
     justify-content: center;
 }
 
-.sign svg {
+.log-out svg {
     width: 17px;
 }
 
-.sign svg path {
+.log-out svg path {
     fill: white;
 }
 /* text */
@@ -142,7 +147,7 @@ body {
     transition-duration: .3s;
 }
 
-.Btn:hover .sign {
+.Btn:hover .log-out {
     width: 25%;
     transition-duration: .3s;
 }

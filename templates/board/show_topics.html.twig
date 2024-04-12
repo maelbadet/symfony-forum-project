@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails du board{{ board.name }}{% endblock %}
+{% block title %}Détails de la catégorie{{ board.name }}{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Détails du board "{{ board.name }}"</h1>
+    <link href="{{ asset('css/board.css') }}" rel="stylesheet"/>
+    <div class="container-list-board">
+        <div class="container-boards">
+            <h1>Liste des topics associé à "{{ board.name }}"</h1>
 
-        <h2>Tableaux des topics associés :</h2>
-        <ul>
-            {% for topic in topics %}
-                <li> <a href="{{ path('topic_show', {'id': topic.id}) }}">{{ topic.title }}</a></li>
-            {% endfor %}
-        </ul>
-        <a href="{{ path('app_topic_new') }}">Créer un board</a>
+            <ul>
+                {% for topic in topics %}
+                    <li> <a href="{{ path('topic_show', {'id': topic.id}) }}">{{ topic.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}

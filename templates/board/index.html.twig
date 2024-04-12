@@ -3,18 +3,20 @@
 {% block title %}Liste des boards{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Liste des boards</h1>
+    <link href="{{ asset('css/board.css') }}" rel="stylesheet"/>
+    <div class="container-list-board">
+        <div class="container-boards">
+            <h1>Liste des boards</h1>
 
-        {% if board is empty %}
-            <p>Aucun board n'a été créé.</p>
-        {% else %}
-            <ul>
-                {% for board in board %}
-                    <li> <a href="{{ path('app_board_show_topic', {'id': board.id}) }}">{{ board.name }}</a></li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-        <a href="{{ path('app_board_new') }}">Créer un board</a>
+            {% if board is empty %}
+                <p>Aucun board n'a été créé.</p>
+            {% else %}
+                <ul>
+                    {% for board in board %}
+                        <li><a href="{{ path('app_board_show_topic', {'id': board.id}) }}">{{ board.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

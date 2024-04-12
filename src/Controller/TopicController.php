@@ -39,6 +39,7 @@ class TopicController extends AbstractController
     public function show(Topic $topic, EntityManagerInterface $entityManager, Request $request): Response
     {
         $message = new Message();
+        $message->getUserEntity($this->getUser());
         $form = $this->createForm(MessageFormType::class, $message);
         $form->handleRequest($request);
 

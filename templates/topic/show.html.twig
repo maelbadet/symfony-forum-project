@@ -3,24 +3,32 @@
 {% block title %}{{ topic.title }}{% endblock %}
 
 {% block body %}
-    <div class="example-wrapper">
-        <h1>{{ topic.title }}</h1>
+    <link rel="stylesheet" href="{{ asset('css/topic.css') }}">
+    <div class="container-messages">
+        <div class="example-wrapper">
+            <div class="container-title">
+                <h1>{{ topic.title }}</h1>
+                <p>{{ topic.content }}</p>
+            </div>
 
-        <p>{{ topic.content }}</p>
+            <div class="container-list-messages">
+                <h2>Messages</h2>
+                <ul>
+                    {% for message in topic.messages %}
+                        <li>
+                            {{ message.content }}
+                            <p class="author">Message de {{ message.userEntity.username }}, écrit le {{ message.createdAt|date('d/m/Y H:i') }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
 
-        <h2>Messages</h2>
-        <ul>
-            {% for message in topic.messages %}
-                <li>{{ message.content }}</li>
-            {% endfor %}
-        </ul>
-
-        <h2>Add a Message</h2>
-        {% if app.user %}
-        {{ render(controller('App\\Controller\\MessageController::new', {'topic': topic})) }}
-        {% else %}
-        <p>ici il faudra mettre la condition si l'utilisateur n'est pas conecter</p>
-        {% endif %}
+                {% if app.user %}
+                    {{ render(controller('App\\Controller\\MessageController::new', {'topic': topic})) }}
+                {% else %}
+                    <p>ici il faudra mettre la condition si l'utilisateur n'est pas conecter</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}
 

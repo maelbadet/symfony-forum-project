@@ -26,6 +26,16 @@
     margin: 16px 0;
 }
 
+.success {
+    background: var(--success-bg);
+    border: solid 1px var(--success-border);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    color: var(--success-color);
+    margin: 16px 0;
+}
+
 .title {
     text-align: center;
     font-size: 1.5rem;
@@ -118,6 +128,8 @@
     border: none;
     border-radius: 0.375rem;
     font-weight: 600;
+    margin: 20px 0 0;
+    cursor: pointer;
 }
 
 .social-message {
