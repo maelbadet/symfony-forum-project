@@ -4,4 +4,28 @@
 
 {% block body %}
 
+<div class="example-wrapper">
+    <h1>Liste des boards suggeres</h1>
+
+{% if boards is empty %}
+            <p>Aucun board n'a été créé.</p>
+        {% else %}
+            <ul>
+                {% for board in boards %}
+                    <li> <a href="{{ path('app_board_show_topic', {'id': board.id}) }}">{{ board.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        {% if categories is empty %}
+            <p>Aucun board n'a été créé.</p>
+        {% else %}
+            <ul>
+                {% for category in categories %}
+                    <li> <a href="">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
 {% endblock %}

@@ -6,6 +6,7 @@ use App\Entity\Board;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+
 /**
  * @extends ServiceEntityRepository<Board>
  *
@@ -19,6 +20,26 @@ class BoardRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Board::class);
+    }
+
+    public function findRandom10(): array
+    {
+        $count = $this->createQueryBuilder('b')
+            ->select('count(b.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        $random = [];
+        while (count($random) < min($count, 10)) {
+            $random[] = rand(1, $count);
+            $random = array_unique($random);
+        }
+
+        return $this->createQueryBuilder('b')
+            ->where('b.id IN (:random)')
+            ->setParameter('random', $random)
+            ->getQuery()
+            ->getResult();
     }
 
     //    /**
