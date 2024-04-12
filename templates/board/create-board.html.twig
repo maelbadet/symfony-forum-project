@@ -1,5 +1,3 @@
-{# templates/board/new.html.twig #}
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Nouveau Board{% endblock %}
@@ -9,16 +7,21 @@
         <h1>Nouveau Board</h1>
 
         {{ form_start(form) }}
-        {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+            <div class="form-group">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
 
-        <label for="board_category">Catégories :</label>
-        <select id="board_category" name="board[category][]" class="form-control" multiple>
-            {% for categories in category %}
-                <option value="{{ categories.id }}">{{ categories.name }}</option>
-            {% endfor %}
-        </select>
+            <div class="form-group">
+                <label for="board_category">Catégories :</label>
+                <select id="board_category" name="board[category][]" class="form-control" multiple>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Créer</button>
+            <button type="submit" class="btn btn-primary mt-3">Créer</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

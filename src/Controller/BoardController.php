@@ -20,12 +20,12 @@ class BoardController extends AbstractController
         $this->doctrine = $doctrine;
     }
 
-    #[Route('/board', name: 'app_board')]
+    #[Route('/boards', name: 'app_board')]
     public function index(): Response
     {
-        $board = $this->doctrine->getRepository(Board::class)->findAll();
+        $boards = $this->doctrine->getRepository(Board::class)->findAll();
         return $this->render('board/index.html.twig', [
-            'board' => $board,
+            'boards' => $boards,
         ]);
     }
 
