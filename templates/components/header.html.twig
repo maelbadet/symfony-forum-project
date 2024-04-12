@@ -18,7 +18,7 @@
 
     <nav class="header__nav">
         {% if app.user %}
-            <a href="">
+            <a href="{{ path('app_personnal_information') }}">
                 <img class="header__account-img" src="{{ asset('images/account.svg') }}" alt="Account">
             </a>
             <a href="{{ path('app_logout') }}" class="Btn">
