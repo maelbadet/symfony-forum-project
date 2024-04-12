@@ -18,15 +18,6 @@ class TopicType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
-            ->add('created_at', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('updated_at', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('deleted_at', null, [
-                'widget' => 'single_text',
-            ])
             ->add('UserEntity', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'id',

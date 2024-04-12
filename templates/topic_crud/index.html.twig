@@ -11,9 +11,6 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Content</th>
-                <th>Created_at</th>
-                <th>Updated_at</th>
-                <th>Deleted_at</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,9 +20,6 @@
                 <td>{{ topic.id }}</td>
                 <td>{{ topic.title }}</td>
                 <td>{{ topic.content }}</td>
-                <td>{{ topic.createdAt ? topic.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ topic.updatedAt ? topic.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ topic.deletedAt ? topic.deletedAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_topic_crud_show', {'id': topic.id}) }}">show</a>
                     <a href="{{ path('app_topic_crud_edit', {'id': topic.id}) }}">edit</a>
