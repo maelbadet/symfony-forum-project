@@ -7,17 +7,19 @@
         <h1>Liste des catégories</h1>
 
         {% if category is empty %}
-            <p>Aucune catégorie n'a été créée.</p>
+            <a href="{{ path('app_category_new') }}" class="btn btn-primary">Créer une catégorie</a>
         {% else %}
             <ul>
                 {% for categories in category %}
                     {% if categories.boards|length > 0 %}
-                        <li><a href="{{ path('app_category_show', {'id': categories.id}) }}">{{ categories.name }}</a></li>
+                        <li><a href="{{ path('app_category_show', {'id': categories.id}) }}">{{ categories.name }}</a>
+                        </li>
                     {% else %}
                         <li>{{ categories.name }}</li>
                     {% endif %}
                 {% endfor %}
             </ul>
         {% endif %}
+        <a href="{{ path('app_category_new') }}">Créer une catégorie</a>
     </div>
 {% endblock %}

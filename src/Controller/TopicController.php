@@ -3,11 +3,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Board;
 use App\Entity\Topic;
 use App\Entity\Message;
 use App\Form\MessageFormType;
-use App\Form\TopicFormType;
-use App\Form\TopicType;
+use App\Form\NewTopicType;
 use DateTime;
 use DateTimeZone;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,7 +15,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use function Symfony\Component\Clock\now;
 
 class TopicController extends AbstractController
 {
@@ -37,7 +36,7 @@ class TopicController extends AbstractController
     }
 
     #[Route('/topics/{id}', name: 'topic_show')]
-    public function show(Topic $topic,EntityManagerInterface $entityManager, Request $request): Response
+    public function show(Topic $topic, EntityManagerInterface $entityManager, Request $request): Response
     {
         $message = new Message();
         $form = $this->createForm(MessageFormType::class, $message);
@@ -58,5 +57,28 @@ class TopicController extends AbstractController
         ]);
     }
 
+    #[Route('/create/topic', name: 'app_topic_new')]
+    public function newTopic(EntityManagerInterface $entityManager, Request $request): Response
+    {
+        $topic = new Topic();
+        $form = $this->createForm(NewTopicType::class, $topic);
+        $form->handleRequest($request);
+        $boards = $entityManager->getRepository(Board::class)->findAll();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $topicName = $topic->getTitle();
+            $existingTopic = $entityManager->getRepository(Topic::class)->findOneBy(['title' => $topicName]);
+            if ($existingTopic) {
+                $this->addFlash('danger', 'Un sujet avec le même titre existe déjà.');
+                return $this->redirectToRoute('app_topic_new');
+            }
+            $entityManager->persist($topic);
+            $entityManager->flush();
+            return $this->redirectToRoute('topic_index');
+        }
 
+        return $this->render('topic/new.html.twig', [
+            'form' => $form->createView(),
+            'boards' => $boards,
+        ]);
+    }
 }
