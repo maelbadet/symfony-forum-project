@@ -29,10 +29,13 @@ class MessageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $message->setTopic($topic);
+            $message->setUserEntity($this->getUser());
+            var_dump($message);
+            die;
             $this->entityManager->persist($message);
             $this->entityManager->flush();
 
-            return $this->redirectToRoute('app_topic_crud_show', ['id' => $topic->getId()]);
+            return $this->redirectToRoute('topic_show', ['id' => $topic->getId()]);
         }
 
         return $this->render('message/new.html.twig', [

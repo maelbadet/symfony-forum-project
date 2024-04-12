@@ -15,11 +15,12 @@
             {% endfor %}
         </ul>
 
-        {# <form action="{{ path('topic_add_message', {'id': topic.id}) }}" method="POST">
-            <input type="hidden" name="_token" value="{{ csrf_token('add_message') }}">
-            <textarea name="content" placeholder="Entrez votre message ici"></textarea>
-            <button type="submit">Envoyer</button>
-        </form>#}
+        <h2>Add a Message</h2>
+        {% if app.user %}
+        {{ render(controller('App\\Controller\\MessageController::new', {'topic': topic})) }}
+        {% else %}
+        <p>ici il faudra mettre la condition si l'utilisateur n'est pas conecter</p>
+        {% endif %}
     </div>
 {% endblock %}
 

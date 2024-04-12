@@ -1,12 +1,6 @@
 {# templates/message/new.html.twig #}
 
-{% extends 'base.html.twig' %}
-
-{% block title %}Add Message{% endblock %}
-
-{% block body %}
     {{ form_start(form) }}
         {{ form_row(form.content) }}
         <button type="submit">Submit</button>
     {{ form_end(form) }}
-{% endblock %}
