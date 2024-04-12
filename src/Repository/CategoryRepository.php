@@ -24,7 +24,7 @@ class CategoryRepository extends ServiceEntityRepository
     public function findTop20CategoriesByBoardCount(): array
     {
         return $this->createQueryBuilder('c')
-            ->select('c, c.name, COUNT(b.id) AS boardCount')
+            ->select('c, c.id, c.name, COUNT(b.id) AS boardCount')
             ->leftJoin('c.boards', 'b')
             ->groupBy('c.id')
             ->orderBy('boardCount', 'DESC')

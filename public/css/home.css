@@ -1,0 +1,101 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-columns {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.home-boards {
+    width: 50%;
+}
+
+.home-category {
+    width: 50%;
+}
+
+.home-container .example-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: var(--clr-tertiary);
+    border-radius: 6px;
+    width: 100%;
+    margin: 20px;
+}
+
+.example-wrapper .home-boards ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: var(--clr-tertiary);
+    border-radius: 6px;
+    max-width: 560px;
+    width: 100%;
+}
+
+.example-wrapper .home-boards ul li {
+    list-style: none;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.example-wrapper .home-boards ul li a {
+    color: var(--fnt-color-primary);
+    background: var(--clr-secondary);
+    border-radius: 6px;
+    border: solid 1px transparent;
+    padding: 30px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all ease 0.2s;
+}
+
+.example-wrapper .home-boards ul li a:hover {
+    color: var(--fnt-color-tertiary);
+    border: solid 1px var(--clr-accent);
+}
+
+.example-wrapper .home-category ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: var(--clr-tertiary);
+    border-radius: 6px;
+    max-width: 560px;
+    width: 100%;
+}
+
+.example-wrapper .home-category ul li {
+    list-style: none;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.example-wrapper .home-category ul li a {
+    color: var(--fnt-color-primary);
+    background: var(--clr-secondary);
+    border-radius: 6px;
+    border: solid 1px transparent;
+    padding: 30px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all ease 0.2s;
+}
+
+.example-wrapper .home-category ul li a:hover {
+    color: var(--fnt-color-tertiary);
+    border: solid 1px var(--clr-accent);
+}
