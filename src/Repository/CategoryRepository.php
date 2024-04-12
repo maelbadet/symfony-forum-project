@@ -21,6 +21,18 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+    public function findTop20CategoriesByBoardCount(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c, c.name, COUNT(b.id) AS boardCount')
+            ->leftJoin('c.boards', 'b')
+            ->groupBy('c.id')
+            ->orderBy('boardCount', 'DESC')
+            ->setMaxResults(20)
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Category[] Returns an array of Category objects
     //     */
