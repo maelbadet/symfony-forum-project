@@ -24,36 +24,35 @@ class AccountController extends AbstractController
     public function index(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
+        $form = $this->createForm(InformationPersonnelType::class, $user);
+        $form->handleRequest($request);
 
-        if (!$user) {
-            return $this->redirectToRoute('app_login');
-        }
-        if (!empty($newPassword)){
-            if ($form->isSubmitted() && $form->isValid()) {
-            var_dump('coucou');
-                if ( $newPassword === $verifNewpassword) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            $newPassword = $form->get('newPassword')->getData();
+            $verifNewpassword = $form->get('verifNewPassword')->getData();
+
+            if (!empty($newPassword)) {
+                if ($newPassword === $verifNewpassword) {
                     $user->setPassword(
                         $userPasswordHasher->hashPassword(
                             $user,
                             $newPassword
                         )
                     );
-                    $entityManager->persist($user);
-                    $entityManager->flush();
-                    return $this->redirectToRoute('app_personnal_information');
                 } else {
-                    $this->addFlash('danger', 'Mot de passe invalide. Êtes vous sur que vos mots passe correspondais ?');
+                    $this->addFlash('danger', 'Les mots de passe ne correspondent pas.');
+                    return $this->redirectToRoute('app_personnal_information');
                 }
             }
 
             $profileImageFile = $form->get('profileImage')->getData();
-            
+
             if ($profileImageFile) {
                 $newFilename = uniqid().'.'.$profileImageFile->guessExtension();
-                
+
                 try {
                     $profileImageFile->move(
-                        $this->getParameter('profile_images'),
+                        $this->getParameter('profile_images_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
