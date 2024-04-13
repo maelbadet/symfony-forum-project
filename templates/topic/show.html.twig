@@ -16,7 +16,7 @@
                     {% for message in topic.messages %}
                         <li>
                             {{ message.content }}
-                            <p class="author">Message de {{ message.userEntity.username }}, écrit le {{ message.createdAt|date('d/m/Y H:i') }}</p>
+                            <p class="author">Message de {% if message.userEntity.username is not empty %}{{ message.userEntity.username }}{% else %}{{ message.userEntity.email }}{% endif %}, écrit le {{ message.createdAt|date('d/m/Y H:i') }}</p>
                         </li>
                     {% endfor %}
                 </ul>
