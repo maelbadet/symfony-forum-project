@@ -3,16 +3,20 @@
 {% block title %}Résultats de la recherche{% endblock %}
 
 {% block body %}
-    <h1>Résultats de la recherche pour "{{ query }}" :</h1>
-    {% if results %}
-        <ul>
-            {% for result in results %}
+    <div class="container-list-board">
+        <div class="container-boards">
+            <h1>Résultats de la recherche pour "{{ query }}" :</h1>
+            {% if results %}
+                <ul>
+                    {% for result in results %}
 
-                <li><a href="{{ path('topic_show', {'id': result.id}) }}">{{ result.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Aucun résultat trouvé pour "{{ query }}".</p>
-    {% endif %}
+                        <li><a href="{{ path('topic_show', {'id': result.id}) }}">{{ result.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucun résultat trouvé pour "{{ query }}".</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

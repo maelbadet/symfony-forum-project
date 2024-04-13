@@ -33,3 +33,7 @@ header .header__nav {
     display: flex;
     gap: 20px;
 }
+
+header form {
+    width: 360px;
+}

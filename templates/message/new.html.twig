@@ -1,7 +1,4 @@
-{# templates/message/new.html.twig #}
-<link rel="stylesheet" href="{{ asset('css/form.css') }}">
-
-    {{ form_start(form) }}
+{{ form_start(form) }}
         {{ form_row(form.content) }}
-        <button class="sign" type="submit">Envoyer</button>
-    {{ form_end(form) }}
+<button class="sign" type="submit">Envoyer</button>
+{{ form_end(form) }}

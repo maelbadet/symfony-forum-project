@@ -3,13 +3,10 @@
 {% block title %}Détails du board {{ board.name }}{% endblock %}
 
 {% block body %}
-    <link href="{{ asset('css/board.css') }}" rel="stylesheet"/>
     <div class="container-list-board">
         <div class="container-boards">
             <h1>Liste des topics associé à "{{ board.name }}"</h1>
 
-        <section>
-            <h2>Tableaux des topics associés :</h2>
             <ul>
                 {% if topics is empty %}
                     <li>Aucun topic n'est associé à ce board pour le moment.</li>
@@ -19,11 +16,9 @@
                     {% endfor %}
                 {% endif %}
             </ul>
-        </section>
 
-        <section>
-            <a href="{{ path('app_topic_new') }}">Créer un nouveau topic</a>
-        </section>
+            <a class="sign" href="{{ path('app_topic_new') }}">Créer un nouveau topic</a>
+        </div>
     </div>
 {% endblock %}
 

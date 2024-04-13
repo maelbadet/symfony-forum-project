@@ -1,49 +1,46 @@
-# projet symfony "Forum"
-Bienvenu sur notre projet de forum. Le but de ce projet est de 
-creer un forum pour une entreprise en interne.
+# Projet Symfony "Forum"
+
+Bienvenue sur notre projet de forum. Le but de ce projet est de créer un forum pour une entreprise en interne.
 
 ## Sommaire
-- Mise en place du projet 
-- decomposition du projet
-- fonctionnalite presentes et fonctionnelles
-- sources utilisee 
-- Chargement des donnees de la base
+- Mise en place du projet
+- Découpage du projet
+- Fonctionnalités présentes et opérationnelles
+- Sources utilisées
+- Chargement des données de la base
 
 ### Mise en place du projet
-Pour ce projet, il y avais 2 developpeur front, et 1 developpeur back.
-Nous nous sommes donc repartis les taches pour allez le plus vite possible toute
-en permettant a chacun d'acquerir des comptetences en Symfony.
+Pour ce projet, nous étions composés de 2 développeurs front, et 1 développeur back. Nous nous sommes repartis les tâches afin de travailler le plus efficacement possible tout en permettant à chacun d'acquérir des compétences en Symfony.
 
-### decomposition du projet
-Nous avons decider de faire, sur la premiere journee, la decomposition du projet
-de facon a ce que tout soit clair pour tout le monde et qu'on ne partent pas
-dans toutes les directions. Pour ce faire, on  decider de ce repartir les 
-taches comme suit : 
-- Mise en place des entites par tout le monde dans le projet.
-- Creation de l'authentification et du user
-- Mise en place des routes pour les differents roles (admin,insider,externe et collaboration)
-- creations des controlleurs pour l'affichage des topics et des messages
-- Creation des controller pour les affichages des categories et des tableaux
-- Creation des methodes pour creer des categorie, board, topics, messages
-- Mise en place du crud pour les admins
-- Envoie des fichiers 
-- redaction du readme
+### Découpage du projet
+Nous avons décidé de décomposer le projet sur la première journée, de sorte à ce que tout soit clair pour tout le monde et que nous ne partions pas dans toutes les directions. Pour ce faire, nous avons décidé de nous répartir les tâches comme suit :
+- Mise en place des entités par tout le monde dans le projet.
+- Création de l'authentification et du user.
+- Mise en place des routes pour les différents rôles (admin, insider, externe et collaboration).
+- Création des contrôleurs pour l'affichage des topics et des messages.
+- Création des contrôleurs pour les affichages des catégories et des tableaux.
+- Création des méthodes pour créer des catégories, boards, topics, messages.
+- Mise en place du CRUD pour les admins.
+- Envoi des fichiers.
+- Rédaction du Readme.
 
-### fonctionnalite presentes et fonctionnelles
-- Inscription, authentification, acces au compte
-- modification des informations personnelles
-- lecture des categories, board, topics et messages
-- redaction de categories, boards, topics et messages
-- CRUD admin, pour l'administration des admins, topics, categories et boards
+### Fonctionnalités présentes et opérationnelles
+- Inscription, authentification, accès au compte.
+- Modification des informations personnelles.
+- Consultation des catégories, boards, topics et messages.
+- Rédaction de catégories, boards, topics et messages.
+- CRUD pour les admins, pour l'administration des admins, topics, catégories et boards.
 
-### sources utilisee
-- pour la partie administration : https://symfony.com/bundles/EasyAdminBundle/current/crud.html
-- pour les generations de fixtures : https://symfony.com/bundles/DoctrineFixturesBundle/current/index.html
+### Sources utilisées
+- Pour la partie administration : [EasyAdminBundle](https://symfony.com/bundles/EasyAdminBundle/current/crud.html)
+- Pour la génération de fixtures : [DoctrineFixturesBundle](https://symfony.com/bundles/DoctrineFixturesBundle/current/index.html)
 
-### Chargement des donnees de la base
-- Pour les chargements des donnes en base de donner, nous avons fais des donnees de test (fixtures)
-pour les charger, il suffit de faire :
-`php bin/console doctrine:fixtures:load` ou bien `symfony console doctrine:fixtures:load`
+### Chargement des données de la base
+- Pour le chargement des données en base de données, nous avons créé des données de test (fixtures). Pour les charger, il suffit d'exécuter :
+  `php bin/console doctrine:fixtures:load` ou bien `symfony console doctrine:fixtures:load`
+- Un fichier `export-sql.sql` à la racine du projet Symfony contient les différentes tables et données de notre base pour une implémentation rapide.
 
-- Sinon a la racine du projet symfony, un fichier export-sql.sql contiens les 
-- differentes tables, donnees de notre base pour une implementation rapide
+### Auteurs
+- Maël Badet
+- Killian Vincent
+- Léon Gallet

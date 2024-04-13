@@ -12,10 +12,12 @@
 
 .home-boards {
     width: 50%;
+    margin-top: 50px;
 }
 
 .home-category {
     width: 50%;
+    margin-top: 50px;
 }
 
 .home-container .example-wrapper {

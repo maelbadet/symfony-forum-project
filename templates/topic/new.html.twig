@@ -5,17 +5,19 @@
 {% block title %}Nouveau Topics{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Nouveau Board</h1>
+    <div class="container-login">
+        <div class="form-container">
+            <h1>Nouveau Topic</h1>
 
-        {{ form_start(form) }}
-        {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
-        {{ form_row(form.content, {'attr': {'class': 'form-control'}}) }}
+            {{ form_start(form) }}
+            {{ form_row(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.content, {'attr': {'class': 'form-control'}}) }}
 
-        <label for="board_category">Catégories :</label>
-        {{ form_row(form.board, {'attr': {'class': 'form-control'}}) }}
+            <label for="board_category" style="visibility: hidden">Catégories :</label>
+            {{ form_row(form.board, {'attr': {'class': 'form-control'}}) }}
 
-        <button type="submit" class="btn btn-primary mt-3">Créer</button>
-        {{ form_end(form) }}
+            <button type="submit" class="sign">Créer</button>
+            {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}
