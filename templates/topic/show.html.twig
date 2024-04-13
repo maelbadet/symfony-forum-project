@@ -24,7 +24,10 @@
                 {% if app.user %}
                     {{ render(controller('App\\Controller\\MessageController::new', {'topic': topic})) }}
                 {% else %}
-                    <p>ici il faudra mettre la condition si l'utilisateur n'est pas conecter</p>
+                    <p>
+                        Vous devez vous connecter pour ajouter un message :
+                        <a href="{{ path('app_login') }}">Me connecter</a>
+                    </p>
                 {% endif %}
             </div>
         </div>

@@ -73,6 +73,12 @@
     border-color: var(--clr-accent);
 }
 
+.container-list-messages a {
+    color: rgba(243, 244, 246, 1);
+    font-size: 16px;
+    text-decoration: underline var(--clr-accent);
+}
+
 .author {
     color: var(--fnt-color-tertiary);
     font-size: 12px;
